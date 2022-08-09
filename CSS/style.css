@@ -549,6 +549,43 @@ header .mega-menu .links li a i {
   position: relative;
   background-color: #ececec;
 }
+.testimonials .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.testimonials .box {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  border-radius: 6px;
+}
+.testimonials .box img {
+  width: 100px;
+  max-width: 100%;
+  position: absolute;
+  right: -10px;
+  top: -50px;
+  border-radius: 50%;
+  border: 10px solid #ececec;
+}
+.testimonials .box h3 {
+  margin: 0 0 10px;
+}
+.testimonials .box .title {
+  display: block;
+  margin: 0 0 10px;
+  color: #777;
+}
+.testimonials .box .rate .filled {
+  color: #ffc107;
+}
+.testimonials .box p {
+  color: #777;
+  line-height: 1.8;
+  margin-top: 10px;
+}
 /* End Testimonials */
 /* Start Animations */
 @keyframes up-and-down {
