@@ -90,6 +90,22 @@ a {
   border: 2px solid white;
   transition-delay: 0.5s;
 }
+.dots {
+  background-image: url(../images/dots.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 204px;
+  height: 186px;
+  z-index: -1;
+}
+.dots-up {
+  right: 0;
+  top: 200px;
+}
+.dots-down {
+  left: 0;
+  bottom: 200px;
+}
 /* End Component */
 /* Start Header */
 header {
@@ -814,17 +830,34 @@ header .mega-menu .links li a i {
   align-items: center;
   gap: 90px;
 }
+@media (max-width: 991px) {
+  .works .container {
+    flex-direction: column;
+  }
+}
+.works .container img {
+  max-width: 100%;
+}
 .works .container .box {
   background-color: #f6f5f5;
-  padding: 10px 30px;
+  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 6px;
   border: 2px solid white;
   position: relative;
   z-index: 1;
+}
+@media (max-width: 991px) {
+  .works .container .box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .works .container .box img {
+    margin-right: 0 !important;
+  }
 }
 .works .container .box::before {
   content: "";
@@ -843,7 +876,7 @@ header .mega-menu .links li a i {
   height: 100%;
 }
 .works .container .box img {
-  width: 60px;
+  width: 64px;
   max-width: 100%;
   flex: 1;
   margin-right: 30px;
@@ -851,15 +884,253 @@ header .mega-menu .links li a i {
 
 .works .container .info .text h3 {
   font-size: 22px;
+  margin: 0;
 }
 .works .container .info .text p {
   color: #777;
-  line-height: 1.8;
+  line-height: 1.7;
   font-size: 18px;
-  margin-top: -10px;
-  display: block;
+  margin: 10px 0 0;
 }
 /* End Works */
+/* Start Events */
+.events {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+}
+.events .container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.events .container img {
+  width: 450px;
+  max-width: 100%;
+}
+.events .container .info {
+  flex: 1;
+  justify-content: center;
+}
+.events .container .info .time {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+}
+.events .container .info .t {
+  border: 1px solid #ccc;
+  width: 80px;
+  height: 100%;
+  padding: 12px 0;
+  transition: 0.3s;
+  border-radius: 6px;
+}
+.events .container .info .t:hover {
+  border-color: var(--main-color);
+}
+.events .container .info .t h2 {
+  margin: 0 0 20px;
+  font-size: 35px;
+  color: var(--main-color);
+  position: relative;
+}
+.events .container .info .t h2::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  transition: 0.3s;
+}
+.events .container .info .t:hover h2::after {
+  background-color: var(--main-color);
+}
+.events .container .info .t span {
+  font-size: 13px;
+}
+.events .container .info .title {
+  text-align: center;
+  margin: 50px 0;
+}
+.events .container .info .title h2 {
+  font-size: 35px;
+}
+.events .container .info .title p {
+  color: #777;
+  line-height: 1.7;
+  font-size: 18px;
+}
+.events .subscribe {
+  margin: 100px auto;
+  display: flex;
+  width: 600px;
+  padding: 30px 40px;
+  background-color: #f6f5f5;
+  border-radius: 50px;
+}
+@media (max-width: 767px) {
+  .events .subscribe {
+    flex-direction: column;
+    border-radius: 6px;
+  }
+}
+.events .subscribe input {
+  border: none;
+  padding: 20px;
+  border-radius: 50px;
+  flex: 1;
+}
+@media (max-width: 767px) {
+  .events .subscribe input {
+    border-radius: 6px;
+  }
+}
+.events .subscribe input::placeholder {
+  transition: opacity 0.3s;
+}
+.events .subscribe input:focus::placeholder {
+  opacity: 0;
+}
+.events .subscribe button {
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  padding: 20px;
+  border-radius: 50px;
+  margin-left: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  .events .subscribe button {
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+}
+/* End Events */
+/* Start pricing */
+.pricing {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+  background-color: #ececec;
+}
+.pricing .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+.pricing .container .box {
+  background-color: white;
+  text-align: center;
+  transition: 0.3s;
+  position: relative;
+  box-shadow: 5px 10px 20px rgb(0 0 0 / 10%);
+  z-index: 1;
+}
+.pricing .container .box::before,
+.pricing .container .box::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 50%;
+  background-color: #eee;
+  z-index: -1;
+  transition: 0.3s;
+}
+.pricing .container .box::before {
+  top: 0;
+  left: 0;
+}
+.pricing .container .box::after {
+  bottom: 0;
+  right: 0;
+}
+.pricing .container .box:hover::after,
+.pricing .container .box:hover::before {
+  width: 100%;
+}
+@media (min-width: 1199px) {
+  .pricing .container .box:nth-of-type(2) {
+    top: -20px;
+  }
+}
+
+.pricing .container .box h3 {
+  margin: 30px 0;
+  letter-spacing: -1px;
+  font-size: 25px;
+}
+.pricing .container .box img {
+  max-width: 100%;
+  width: 80px;
+  margin-bottom: 30px;
+}
+.pricing .container .box .price .amount {
+  font-size: 60px;
+  font-weight: bold;
+  color: var(--main-color);
+  display: block;
+  margin-bottom: 5px;
+}
+.pricing .container .box .price .time {
+  color: #777;
+}
+.pricing .container .box ul {
+  text-align: left;
+}
+.pricing .container .box ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  margin-right: 10px;
+  font-weight: 900;
+  color: var(--main-color);
+}
+.pricing .container .box ul li {
+  padding: 20px;
+}
+.pricing .container .box a {
+  margin: 30px auto 40px;
+  display: block;
+  color: var(--main-color);
+  font-weight: bold;
+  border: 2px solid var(--main-color);
+  width: fit-content;
+  padding: 15px 20px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.pricing .container .box a:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+.pricing .container .box .note {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  writing-mode: vertical-lr;
+  background-color: var(--main-color);
+  color: white;
+  padding: 10px 10px 35px 10px;
+  font-weight: bold;
+  font-size: 18px;
+  width: 41px;
+}
+.pricing .container .box .note::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  border-color: transparent transparent white transparent;
+  bottom: -1px;
+  left: 0;
+  border-width: 20.5px;
+  border-style: solid;
+}
+/* End pricing */
 /* Start Animations */
 @keyframes up-and-down {
   0%,
